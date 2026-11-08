@@ -41,7 +41,7 @@ type PanelUpdateInfo struct {
 }
 
 const (
-	panelUpdaterURL      = "https://raw.githubusercontent.com/MHSanaei/3x-ui/main/update.sh"
+	panelUpdaterURL      = "https://raw.githubusercontent.com/player4sir/3x-ui/main/update.sh"
 	maxPanelUpdaterBytes = 2 << 20
 	maxPanelReleaseBytes = 2 << 20
 	// devReleaseTag is the fixed-tag rolling pre-release the CI force-moves to the
@@ -131,14 +131,30 @@ func (s *PanelService) RestartPanel(delay time.Duration) error {
 // is enabled on a dev build it compares commits against the rolling dev release;
 // otherwise it compares versions against the latest stable tag.
 func (s *PanelService) GetUpdateInfo() (*PanelUpdateInfo, error) {
+	current := config.GetBaseVersion()
 	if devChannelActive() {
-		return getDevUpdateInfo()
+		info, err := getDevUpdateInfo()
+		if err != nil {
+			logger.Debug("dev update check failed:", err)
+			return &PanelUpdateInfo{
+				Channel:         "dev",
+				CurrentVersion:  config.GetPanelVersion(),
+				LatestVersion:   config.GetPanelVersion(),
+				UpdateAvailable: false,
+			}, nil
+		}
+		return info, nil
 	}
 	latest, err := fetchLatestPanelVersion()
 	if err != nil {
-		return nil, err
+		logger.Debug("panel update check failed:", err)
+		return &PanelUpdateInfo{
+			Channel:         "stable",
+			CurrentVersion:  current,
+			LatestVersion:   current,
+			UpdateAvailable: false,
+		}, nil
 	}
-	current := config.GetBaseVersion()
 	return &PanelUpdateInfo{
 		Channel:         "stable",
 		CurrentVersion:  current,
@@ -437,9 +453,9 @@ func fetchLatestPanelVersion() (string, error) {
 // fetchPanelRelease fetches a release from GitHub. An empty tag resolves the
 // latest stable release; a non-empty tag (e.g. dev-latest) resolves that tag.
 func fetchPanelRelease(tag string) (*service.Release, error) {
-	url := "https://api.github.com/repos/MHSanaei/3x-ui/releases/latest"
+	url := "https://api.github.com/repos/player4sir/3x-ui/releases/latest"
 	if tag != "" {
-		url = "https://api.github.com/repos/MHSanaei/3x-ui/releases/tags/" + tag
+		url = "https://api.github.com/repos/player4sir/3x-ui/releases/tags/" + tag
 	}
 	client := (&service.SettingService{}).NewProxiedHTTPClient(10 * time.Second)
 	req, reqErr := http.NewRequestWithContext(context.Background(), http.MethodGet, url, nil)
