@@ -535,7 +535,19 @@ update_x-ui() {
         tag_version="${XUI_UPDATE_TAG}"
         echo -e "${green}Using update tag: ${tag_version}${plain}"
     else
-        tag_version=$(${curl_bin} -Ls "https://api.github.com/repos/player4sir/3x-ui/releases/latest" 2> /dev/null | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+        local url
+        url=$(${curl_bin} -sSLI -o /dev/null -w '%{url_effective}' --retry 5 --retry-delay 3 --connect-timeout 15 --max-time 60 "https://github.com/player4sir/3x-ui/releases/latest" 2>/dev/null)
+        tag_version=${url##*/tag/}
+        if [[ "$tag_version" == "$url" || -z "$tag_version" || "$tag_version" == "latest" ]]; then
+            tag_version=$(${curl_bin} -Ls "https://api.github.com/repos/player4sir/3x-ui/releases/latest" 2> /dev/null | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+        fi
+        if [[ -z "$tag_version" ]]; then
+            local raw_ver
+            raw_ver=$(${curl_bin} -fsSL --retry 3 --connect-timeout 10 "https://raw.githubusercontent.com/player4sir/3x-ui/main/internal/config/version" 2>/dev/null | tr -d '[:space:]')
+            if [[ -n "$raw_ver" ]]; then
+                tag_version="v${raw_ver#v}"
+            fi
+        fi
         if [[ ! -n "$tag_version" ]]; then
             _fail "ERROR: Failed to fetch x-ui version, it may be due to GitHub API restrictions, please try it later"
         fi

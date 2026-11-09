@@ -1734,7 +1734,17 @@ resolve_latest_tag() {
         echo "$tag"
         return 0
     fi
-    curl -Ls --retry 5 --retry-delay 3 --connect-timeout 15 --max-time 60 "https://api.github.com/repos/player4sir/3x-ui/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'
+    tag=$(curl -Ls --retry 5 --retry-delay 3 --connect-timeout 15 --max-time 60 "https://api.github.com/repos/player4sir/3x-ui/releases/latest" 2>/dev/null | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+    if [[ -n "$tag" ]]; then
+        echo "$tag"
+        return 0
+    fi
+    local raw_ver
+    raw_ver=$(curl -fsSL --retry 3 --connect-timeout 10 "https://raw.githubusercontent.com/player4sir/3x-ui/main/internal/config/version" 2>/dev/null | tr -d '[:space:]')
+    if [[ -n "$raw_ver" ]]; then
+        echo "v${raw_ver#v}"
+        return 0
+    fi
 }
 
 # Releases publish <asset>.sha256 next to each archive. A mismatch or a failed
