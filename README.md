@@ -8,10 +8,10 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/player4sir/3x-ui/releases"><img src="https://img.shields.io/github/v/release/player4sir/3x-ui" alt="Release"></a>
-  <a href="https://github.com/player4sir/3x-ui/actions"><img src="https://img.shields.io/github/actions/workflow/status/player4sir/3x-ui/release.yml.svg" alt="Build"></a>
-  <a href="#"><img src="https://img.shields.io/github/go-mod/go-version/player4sir/3x-ui.svg" alt="GO Version"></a>
-  <a href="https://github.com/player4sir/3x-ui/releases/latest"><img src="https://img.shields.io/github/downloads/player4sir/3x-ui/total.svg" alt="Downloads"></a>
+  <a href="https://github.com/browndown381-pixel/new3x-ui/releases"><img src="https://img.shields.io/github/v/release/browndown381-pixel/new3x-ui" alt="Release"></a>
+  <a href="https://github.com/browndown381-pixel/new3x-ui/actions"><img src="https://img.shields.io/github/actions/workflow/status/browndown381-pixel/new3x-ui/release.yml.svg" alt="Build"></a>
+  <a href="#"><img src="https://img.shields.io/github/go-mod/go-version/browndown381-pixel/new3x-ui.svg" alt="GO Version"></a>
+  <a href="https://github.com/browndown381-pixel/new3x-ui/releases/latest"><img src="https://img.shields.io/github/downloads/browndown381-pixel/new3x-ui/total.svg" alt="Downloads"></a>
   <a href="https://www.gnu.org/licenses/gpl-3.0.en.html"><img src="https://img.shields.io/badge/license-GPL%20V3-blue.svg?longCache=true" alt="License"></a>
 </p>
 
@@ -80,13 +80,13 @@ Built as an enhanced fork of the original X-UI project, 3X-UI adds broader proto
 ### 1. One-Click Install
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/player4sir/3x-ui/main/install.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/browndown381-pixel/new3x-ui/main/install.sh)
 ```
 
 To install a specific version (e.g. `v3.11.2`):
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/player4sir/3x-ui/main/install.sh) v3.11.2
+bash <(curl -Ls https://raw.githubusercontent.com/browndown381-pixel/new3x-ui/main/install.sh) v3.11.2
 ```
 
 ### 2. Online Update
@@ -94,7 +94,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/player4sir/3x-ui/main/install.
 To update an existing installation or pull updates from this repository:
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/player4sir/3x-ui/main/update.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/browndown381-pixel/new3x-ui/main/update.sh)
 ```
 
 After installation, run `x-ui` to open the management menu, where you can start/stop the service, view or reset your login credentials, manage SSL certificates, and more.
@@ -144,7 +144,7 @@ The source SQLite file is left untouched; remove it manually once you have verif
 #### Option 1: Docker Compose (Recommended)
 
 ```bash
-git clone https://github.com/player4sir/3x-ui.git
+git clone https://github.com/browndown381-pixel/new3x-ui.git
 cd 3x-ui
 docker compose up -d
 ```
@@ -165,7 +165,7 @@ docker run -d \
   --cap-add=NET_RAW \
   -v $PWD/db/:/etc/x-ui/ \
   -v $PWD/cert/:/root/cert/ \
-  ghcr.io/player4sir/3x-ui:latest
+  ghcr.io/browndown381-pixel/new3x-ui:latest
 ```
 
 > Note: Fail2ban requires `NET_ADMIN` and `NET_RAW` capabilities to manage iptables rules for client IP limits.
@@ -228,10 +228,10 @@ If this project is helpful to you, feel free to give it a :star2: Star!
 
 ## Star History
 
-<a href="https://www.star-history.com/?repos=player4sir%2F3x-ui&type=date&legend=top-left">
+<a href="https://www.star-history.com/?repos=browndown381-pixel%2Fnew3x-ui&type=date&legend=top-left">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=player4sir/3x-ui&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=player4sir/3x-ui&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=player4sir/3x-ui&type=date&legend=top-left" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=browndown381-pixel/new3x-ui&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=browndown381-pixel/new3x-ui&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=browndown381-pixel/new3x-ui&type=date&legend=top-left" />
  </picture>
 </a>

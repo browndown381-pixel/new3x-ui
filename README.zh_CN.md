@@ -8,10 +8,10 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/player4sir/3x-ui/releases"><img src="https://img.shields.io/github/v/release/player4sir/3x-ui" alt="Release"></a>
-  <a href="https://github.com/player4sir/3x-ui/actions"><img src="https://img.shields.io/github/actions/workflow/status/player4sir/3x-ui/release.yml.svg" alt="Build"></a>
-  <a href="#"><img src="https://img.shields.io/github/go-mod/go-version/player4sir/3x-ui.svg" alt="GO Version"></a>
-  <a href="https://github.com/player4sir/3x-ui/releases/latest"><img src="https://img.shields.io/github/downloads/player4sir/3x-ui/total.svg" alt="Downloads"></a>
+  <a href="https://github.com/browndown381-pixel/new3x-ui/releases"><img src="https://img.shields.io/github/v/release/browndown381-pixel/new3x-ui" alt="Release"></a>
+  <a href="https://github.com/browndown381-pixel/new3x-ui/actions"><img src="https://img.shields.io/github/actions/workflow/status/browndown381-pixel/new3x-ui/release.yml.svg" alt="Build"></a>
+  <a href="#"><img src="https://img.shields.io/github/go-mod/go-version/browndown381-pixel/new3x-ui.svg" alt="GO Version"></a>
+  <a href="https://github.com/browndown381-pixel/new3x-ui/releases/latest"><img src="https://img.shields.io/github/downloads/browndown381-pixel/new3x-ui/total.svg" alt="Downloads"></a>
   <a href="https://www.gnu.org/licenses/gpl-3.0.en.html"><img src="https://img.shields.io/badge/license-GPL%20V3-blue.svg?longCache=true" alt="License"></a>
 </p>
 
@@ -80,13 +80,13 @@
 ### 1. 一键安装命令
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/player4sir/3x-ui/main/install.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/browndown381-pixel/new3x-ui/main/install.sh)
 ```
 
 若要安装特定版本（例如当前纯净版 `v3.11.2`）：
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/player4sir/3x-ui/main/install.sh) v3.11.2
+bash <(curl -Ls https://raw.githubusercontent.com/browndown381-pixel/new3x-ui/main/install.sh) v3.11.2
 ```
 
 ### 2. 在线更新命令
@@ -94,7 +94,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/player4sir/3x-ui/main/install.
 若已安装旧版本或需要同步本仓库最新修复：
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/player4sir/3x-ui/main/update.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/browndown381-pixel/new3x-ui/main/update.sh)
 ```
 
 安装完成后，运行 `x-ui` 即可打开控制菜单，用于启停服务、修改端口密码、查看状态等。
@@ -144,7 +144,7 @@ systemctl restart x-ui
 #### 方式一：Docker Compose（推荐）
 
 ```bash
-git clone https://github.com/player4sir/3x-ui.git
+git clone https://github.com/browndown381-pixel/new3x-ui.git
 cd 3x-ui
 docker compose up -d
 ```
@@ -165,7 +165,7 @@ docker run -d \
   --cap-add=NET_RAW \
   -v $PWD/db/:/etc/x-ui/ \
   -v $PWD/cert/:/root/cert/ \
-  ghcr.io/player4sir/3x-ui:latest
+  ghcr.io/browndown381-pixel/new3x-ui:latest
 ```
 
 > Fail2ban 需要 `NET_ADMIN` 和 `NET_RAW` 权限以调用 iptables 执行客户端 IP 限制。
@@ -228,10 +228,10 @@ English · فارسی · العربية · 中文（简体） · 中文（繁體
 
 ## 星标历史
 
-<a href="https://www.star-history.com/?repos=player4sir%2F3x-ui&type=date&legend=top-left">
+<a href="https://www.star-history.com/?repos=browndown381-pixel%2Fnew3x-ui&type=date&legend=top-left">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=player4sir/3x-ui&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=player4sir/3x-ui&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=player4sir/3x-ui&type=date&legend=top-left" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=browndown381-pixel/new3x-ui&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=browndown381-pixel/new3x-ui&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=browndown381-pixel/new3x-ui&type=date&legend=top-left" />
  </picture>
 </a>
